@@ -1,12 +1,19 @@
-import {drizzle} from "drizzle-orm/neon-http"
-import { neon } from "@neondatabase/serverless"
-import { config } from "dotenv"
+import { drizzle } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
+import { config } from "dotenv";
 
-config( {path:".env.local"})
+// Load environment variables from .env.local
+config({ path: ".env.local" });
 
-const sql = neon(process.env.DATABASE_URL!)
-//logger
-//const db = drizzle(sql, {logger: true})
-const db = drizzle(sql)
+// Ensure DATABASE_URL is set
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL is not set in .env.local");
+}
 
-export { db }
+// Initialize the Neon database connection
+const sql = neon(process.env.DATABASE_URL);
+
+// Initialize Drizzle ORM with optional logger
+const db = drizzle(sql, { logger: true }); // Uncomment to enable logging
+
+export { db };
