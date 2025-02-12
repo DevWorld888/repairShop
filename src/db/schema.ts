@@ -21,7 +21,7 @@ export const customers = pgTable("customers", {
 })
 export const tickets = pgTable("tickets", {
     id: serial("id").primaryKey(),
-    customers_id: integer("customers_id").notNull().references(()=>customers.id),
+    customer_id: integer("customer_id").notNull().references(()=>customers.id),
     title: varchar("title").notNull(),
     description: text("description").notNull(),
     completed: boolean("completed").notNull().default(false),
@@ -38,7 +38,7 @@ export const customerTickets = relations(customers,({many})=>({
 
 export const ticketsRelations = relations(tickets,({one})=>({
     customer : one(customers,{
-        fields:[tickets.customers_id],
+        fields:[tickets.customer_id],
         references:[customers.id]
     })
 }))
