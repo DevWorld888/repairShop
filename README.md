@@ -1,4 +1,5 @@
 # RepairShop
+Open markdown Ctrl + K + v
 
 Welcome to **RepairShop**, a Next.js application scaffolded to handle authentication, theming, dropdown menus, error tracking, and more—all while using modern libraries to streamline development and maintain clean code. This README will walk you through the key dependencies, what they are used for, and how to get the project up and running using **pnpm**.
 
@@ -124,3 +125,80 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use it a
 ---
 
 **Happy Coding!** If you have any questions, suggestions, or issues, feel free to open an issue or reach out. Enjoy building with **RepairShop**!
+
+# Project Structure and Guide
+
+## 1. Project Overview
+This project is a **Next.js-based application** using **Drizzle ORM, TypeScript, TailwindCSS, and Radix UI** for building modern web applications. It also integrates **Sentry for error tracking, Kinde for authentication, and Neon Database for serverless database hosting**.
+
+## 2. Project Organization
+The project follows a structured folder setup to maintain modularity and scalability:
+
+- **`src/`**: Main source code directory.
+  - **`app/`**: Contains Next.js app router (if used).
+  - **`components/`**: Reusable UI components.
+    - **`ui/`**: Contains UI-related components (e.g., buttons, headers, themes).
+  - **`db/`**: Database-related configurations and migrations.
+  - **`lib/`**: Utilities and helper functions.
+  - **`zod-schemas/`**: Schema validation using Zod.
+- **Config Files:**
+  - **`.env.local`**: Environment variables.
+  - **`next.config.ts`**: Next.js configuration.
+  - **`tailwind.config.ts`**: TailwindCSS configuration.
+  - **`eslint.config.mjs`**: ESLint configuration.
+
+## 3. Package Dependencies
+### Essential Dependencies
+- **Next.js (`next`)**: Core framework for React applications.
+- **React (`react` & `react-dom`)**: Core React libraries.
+- **Drizzle ORM (`drizzle-orm` & `drizzle-zod`)**: ORM for managing the database.
+- **Zod (`zod`)**: Schema validation.
+- **TailwindCSS (`tailwindcss` & `tailwind-merge`)**: Styling framework.
+- **Lucide React (`lucide-react`)**: Icon set.
+- **Radix UI (`@radix-ui/react-*`)**: UI components (Dropdown, Label, Slot).
+- **Kinde Auth (`@kinde-oss/kinde-auth-nextjs`)**: Authentication.
+- **Sentry (`@sentry/nextjs`)**: Error tracking.
+- **Dotenv (`dotenv`)**: Environment variable management.
+- **Neon Database (`@neondatabase/serverless`)**: Serverless database provider.
+
+### Developer Dependencies
+- **TypeScript (`typescript`)**: Type checking.
+- **ESLint (`eslint` & `eslint-config-next`)**: Linting.
+- **Drizzle Kit (`drizzle-kit`)**: Database migrations.
+- **TSX (`tsx`)**: Run TypeScript files without transpiling.
+- **PostCSS (`postcss`)**: CSS processing.
+- **Node.js Types (`@types/node`)**: TypeScript definitions for Node.js.
+
+## 4. Scripts for Development
+The `package.json` file contains useful scripts for managing the project:
+
+- **`dev`**: Start Next.js development server.
+- **`dev:turbo`**: Start with Next.js Turbo Mode.
+- **`build`**: Build the project.
+- **`start`**: Start the production server.
+- **`lint`**: Run ESLint checks.
+- **Database scripts:**
+  - `db:generate`: Generate Drizzle schema.
+  - `db:migrate`: Run migrations.
+  - `db:seed`: Seed database.
+
+## 5. Reusability for Future Projects
+When starting a new project, consider reusing:
+1. **Folder structure**: Keep modular organization.
+2. **Next.js setup**: Use Next.js for SSR/SSG benefits.
+3. **Drizzle ORM & Zod**: Database management and schema validation.
+4. **TailwindCSS**: For rapid styling.
+5. **ESLint & TypeScript**: Maintain clean code.
+6. **Authentication (Kinde)**: Use Kinde for user authentication.
+7. **Error tracking (Sentry)**: Monitor application health.
+
+### **Customization Checklist for New Projects:**
+- Change **project name** in `package.json`.
+- Update **.env variables** for new environments.
+- Modify **database configuration**.
+- Adjust **TailwindCSS settings**.
+- Setup **authentication provider**.
+
+## Conclusion
+This guide serves as a blueprint for organizing and structuring modern web applications with Next.js, TypeScript, Drizzle ORM, and TailwindCSS. By following these principles, you can efficiently build and maintain scalable web applications.
+
