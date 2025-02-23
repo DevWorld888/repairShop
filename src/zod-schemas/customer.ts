@@ -1,7 +1,7 @@
 import { createInsertSchema ,createSelectSchema } from 'drizzle-zod';  
 import { customers } from '@/db/schema';
 import { z } from 'zod';
-export const insertCutomerSchema = createInsertSchema(customers,{
+export const insertCustomerSchema = createInsertSchema(customers,{
     firstName: z.string().min(1, "First name is required"),
     lastName:z.string().min(1,"Last name is required"),
     address1:z.string().min(1,"Address is required"),
@@ -13,6 +13,8 @@ export const insertCutomerSchema = createInsertSchema(customers,{
 });
 
 export const selectCustomerSchema = createSelectSchema(customers);
-
-export type insertCutomerSchematYpe = typeof insertCutomerSchema._type
+export type insertCustomerSchemaType = typeof insertCustomerSchema._type
 export type selectCustomerSchemaType = typeof selectCustomerSchema._type
+
+
+
