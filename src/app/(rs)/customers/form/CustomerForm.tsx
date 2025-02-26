@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
+import { InputWithLabels } from "@/components/inputs/InputWithLabels";
 import {
   insertCustomerSchema,
   type insertCustomerSchemaType,
@@ -48,12 +49,82 @@ export default function CustomerForm({ customer }: Props) {
       </div>
       <Form {...form}>
         <form
-          className="flex flex-col sm:flex-grow gap-4 sm:gap-8"
-          onSubmit={form.handleSubmit(onSubmit)}
           
+           className="flex flex-col md:flex-row gap-4 md:gap-8"
+          onSubmit={form.handleSubmit(onSubmit)}
+
         >
-          <p>{JSON.stringify(form.getValues())}</p>
-          <Button type="submit">Submit</Button>
+          <div className="flex flex-col gap-4 w-full max-w-xs">
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="First Name"
+              nameInSchema="firstName"
+
+            />
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="Last Name"
+              nameInSchema="lastName"
+
+            />
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="Address"
+              nameInSchema="address1"
+
+            />
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="City"
+              nameInSchema="city"
+
+            />
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="State"
+              nameInSchema="state"
+
+            />
+
+          </div>
+          <div className="flex flex-col gap-4 w-full max-w-xs">
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="Zip"
+              nameInSchema="zip"
+
+            />
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="Email"
+              nameInSchema="email"
+
+            />
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="Phone"
+              nameInSchema="phone"
+
+            />
+            <InputWithLabels<insertCustomerSchemaType>
+              fieldTitle="Notes"
+              nameInSchema="notes"
+
+            />
+            <div className="flex gap-2">
+              <Button type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                variant="primary"
+                title="Save"
+                
+                >
+                Submit
+              </Button>
+              <Button type="buton"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                variant="destructive"
+                title="Reset"
+                onClick={() => form.reset(defaultValues)}
+                >
+                Reset
+              </Button>
+
+            </div>
+          </div>
+          {/* <p>{JSON.stringify(form.getValues())}</p> */}
+         
         </form>
       </Form>
     </div>
