@@ -10,7 +10,9 @@ import {
   type insertCustomerSchemaType,
   type selectCustomerSchemaType,
 } from "@/zod-schemas/customer";
-
+import { TextAreaWithLabel } from "@/components/inputs/TextAreaWithLabels";
+import { SelectWithLabels } from "@/components/inputs/SelectWithLabel";
+import { StateArray } from "@/constants/StatesArrays";
 type Props = {
   customer?: selectCustomerSchemaType;
 };
@@ -75,11 +77,11 @@ export default function CustomerForm({ customer }: Props) {
               nameInSchema="city"
 
             />
-            <InputWithLabels<insertCustomerSchemaType>
+            <SelectWithLabels<insertCustomerSchemaType>
               fieldTitle="State"
               nameInSchema="state"
-
-            />
+              data={StateArray} 
+            />           
 
           </div>
           <div className="flex flex-col gap-4 w-full max-w-xs">
@@ -98,10 +100,11 @@ export default function CustomerForm({ customer }: Props) {
               nameInSchema="phone"
 
             />
-            <InputWithLabels<insertCustomerSchemaType>
+           
+            <TextAreaWithLabel<insertCustomerSchemaType>
               fieldTitle="Notes"
               nameInSchema="notes"
-
+              className="h-40"
             />
             <div className="flex gap-2">
               <Button type="submit"
