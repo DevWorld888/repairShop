@@ -5,13 +5,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { InputWithLabels } from "@/components/inputs/InputWithLabels";
+import { TextAreaWithLabel } from "@/components/inputs/TextAreaWithLabels";
+import { SelectWithLabels } from "@/components/inputs/SelectWithLabel";
 import {
   insertCustomerSchema,
   type insertCustomerSchemaType,
   type selectCustomerSchemaType,
 } from "@/zod-schemas/customer";
-import { TextAreaWithLabel } from "@/components/inputs/TextAreaWithLabels";
-import { SelectWithLabels } from "@/components/inputs/SelectWithLabel";
 import { StateArray } from "@/constants/StatesArrays";
 type Props = {
   customer?: selectCustomerSchemaType;

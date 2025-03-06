@@ -12,7 +12,7 @@ export default async function TicketFormPage({
     try {
         const { ticketId, customerId} = await searchParams;
         // If no customerId is provided, return early
-        if (!customerId && !ticketId) {
+        if (!customerId || !ticketId) {
            return (
                <div>
                    Ticket ID or Customer Id required to load ticket form<BackButton title="Go Back" variant="default" />
